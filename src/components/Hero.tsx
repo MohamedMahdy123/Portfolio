@@ -1,86 +1,103 @@
 import React, { useState } from 'react';
 
+const stats = [
+  { value: '1+', label: 'Years Experience' },
+  { value: '5', label: 'Products Shipped' },
+  { value: '2k+', label: 'Active Users' },
+];
+
 const Hero: React.FC = () => {
   const [hireMeHovered, setHireMeHovered] = useState(false);
-  const [downloadHovered, setDownloadHovered] = useState(false);
+  const [projectsHovered, setProjectsHovered] = useState(false);
+
   return (
-    <section id="home" className="py-5 bg-transparent min-vh-90 d-flex align-items-center">
+    <section id="home" className="py-5 min-vh-90 d-flex align-items-center" style={{ background: 'var(--bg)' }}>
       <div className="container">
         <div className="row align-items-center justify-content-between g-5 flex-column-reverse flex-lg-row">
+          {/* Left */}
           <div className="col-lg-6 d-flex flex-column align-items-start gap-3">
-            <div className="fw-semibold text-secondary" style={{fontSize: 24}}>Hi I am</div>
-            <div className="fw-bold" style={{color: '#959595', fontSize: 28}}>Mohamed Mahdy</div>
-            <div
-              className="fw-black lh-1 mb-2"
-              style={{
-                fontSize: 56,
-                letterSpacing: '0.03em',
+            <div style={{ fontSize: 13, color: '#FD6F00', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700 }}>
+              Angular & React Frontend Engineer
+            </div>
+            <div className="fw-black lh-1" style={{ fontSize: 62, letterSpacing: '-0.01em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
+              Mohamed<br />
+              <span style={{
                 background: 'linear-gradient(90.48deg, #984300 0.34%, #FD6F00 42.06%, #CA5900 90.34%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                marginTop: 10,
-              }}
-            >
-              Web Developer<br />Front End Developer<br />UI/UX designer
+                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              }}>Mahdy</span>
             </div>
-            <div className="d-flex gap-3 mt-2">
-              <a href="https://github.com/MohamedMahdy123" target="_blank" rel="noopener noreferrer" className="d-flex align-items-center justify-content-center rounded-circle border" style={{width: 40, height: 40, borderColor: '#575757', background: 'rgba(255,255,255,0.04)'}}>
-                <i className="fab fa-github" style={{ color: '#BABABA', fontSize: 24 }}></i>
+            <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 460, lineHeight: 1.8, margin: 0 }}>
+              Building production Angular &amp; React apps at Boyot. Creator of FormCraft — an AI-powered form builder used by real teams.
+            </p>
+            {/* Socials */}
+            <div className="d-flex gap-3 mt-1">
+              <a href="https://github.com/MohamedMahdy123" target="_blank" rel="noopener noreferrer"
+                className="d-flex align-items-center justify-content-center rounded-circle"
+                style={{ width: 42, height: 42, border: '1.5px solid var(--border)', background: 'var(--bg-card)' }}>
+                <i className="fab fa-github" style={{ color: 'var(--text-secondary)', fontSize: 20 }}></i>
               </a>
-              <a href="https://www.linkedin.com/in/mohamed-mahdy02/" target="_blank" rel="noopener noreferrer" className="d-flex align-items-center justify-content-center rounded-circle border" style={{width: 40, height: 40, borderColor: '#575757', background: 'rgba(255,255,255,0.04)'}}>
-                <i className="fab fa-linkedin-in" style={{ color: '#BABABA', fontSize: 24 }}></i>
+              <a href="https://www.linkedin.com/in/mohamed-mahdy02/" target="_blank" rel="noopener noreferrer"
+                className="d-flex align-items-center justify-content-center rounded-circle"
+                style={{ width: 42, height: 42, border: '1.5px solid var(--border)', background: 'var(--bg-card)' }}>
+                <i className="fab fa-linkedin-in" style={{ color: '#0077b5', fontSize: 20 }}></i>
               </a>
             </div>
-            <div className="d-flex gap-3 mt-4 flex-wrap">
-              <a
-                href="#contact"
-                className="btn fw-bold px-4 py-2 rounded-3"
+            {/* CTAs */}
+            <div className="d-flex gap-3 mt-2 flex-wrap">
+              <a href="#contact" className="btn fw-bold px-4 py-2 rounded-3"
                 style={{
-                  background: hireMeHovered
-                    ? '#fff'
-                    : 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)',
-                  color: hireMeHovered ? '#959595' : '#fff',
-                  fontSize: 20,
-                  fontFamily: 'Lato, sans-serif',
-                  letterSpacing: '0.03em',
-                  outline: hireMeHovered ? '2px solid #959595' : 'none',
-                  border: 'none',
-                  transition: 'background 0.2s, color 0.2s, outline 0.2s',
+                  background: hireMeHovered ? '#e05a00' : 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)',
+                  color: '#fff', fontSize: 17, border: 'none', transition: 'background 0.2s',
                 }}
-                onMouseEnter={() => setHireMeHovered(true)}
-                onMouseLeave={() => setHireMeHovered(false)}
-              >
+                onMouseEnter={() => setHireMeHovered(true)} onMouseLeave={() => setHireMeHovered(false)}>
                 Hire Me
               </a>
-              <a
-                href="/Mohamed%20Mahdy%20cv.pdf" target="_blank" rel="noopener noreferrer"
-                className="btn fw-bold px-4 py-2 rounded-3 border"
+              <a href="#portfolio" className="btn fw-bold px-4 py-2 rounded-3"
                 style={{
-                  border: '2px solid #959595',
-                  color: downloadHovered ? '#fff' : '#959595',
-                  background: downloadHovered ? '#E46400' : 'transparent',
-                  fontSize: 20,
-                  fontFamily: 'Lato, sans-serif',
-                  letterSpacing: '0.03em',
-                  transition: 'background 0.2s, color 0.2s',
+                  background: projectsHovered ? '#FD6F00' : 'transparent',
+                  color: projectsHovered ? '#fff' : '#FD6F00',
+                  fontSize: 17, border: '2px solid #FD6F00', transition: 'all 0.2s',
                 }}
-                onMouseEnter={() => setDownloadHovered(true)}
-                onMouseLeave={() => setDownloadHovered(false)}
-              >
-                Download CV
+                onMouseEnter={() => setProjectsHovered(true)} onMouseLeave={() => setProjectsHovered(false)}>
+                View Projects
               </a>
             </div>
-            <div className="d-flex justify-content-center mt-5 w-100">
-              <div className="bg-dark rounded-4 px-5 py-4 text-center d-flex flex-column align-items-center" style={{minWidth: 220}}>
-                <div className="fw-bold" style={{ color: '#FD6F00', fontSize: 32 }}>30+</div>
-                <div className="fw-bold text-white" style={{ fontSize: 22 }}>Project done</div>
-              </div>
+            {/* Stats */}
+            <div className="d-flex gap-4 mt-3 flex-wrap">
+              {stats.map((s, i) => (
+                <div key={i}>
+                  <div className="fw-black" style={{ fontSize: 30, color: '#FD6F00', lineHeight: 1 }}>{s.value}</div>
+                  <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 4, fontWeight: 500 }}>{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="col-lg-6 d-flex align-items-center justify-content-center mb-4 mb-lg-0">
-            <div className="rounded-circle d-flex align-items-center justify-content-center position-relative overflow-hidden" style={{ width: 320, height: 400, background: 'rgba(255,255,255,0.04)' }}>
-              <img src="/profile.jpg" alt="Mohamed Mahdy" style={{ width: 280, height: 360, objectFit: 'cover', borderRadius: '50%' }} />
+
+          {/* Right — photo */}
+          <div className="col-lg-5 d-flex align-items-center justify-content-center mb-4 mb-lg-0">
+            <div className="position-relative">
+              <div style={{
+                width: 300, height: 300, borderRadius: '50%', overflow: 'hidden',
+                border: '4px solid #FD6F00',
+                boxShadow: '0 8px 40px rgba(253,111,0,0.2)',
+              }}>
+                <img src="/profile.jpg" alt="Mohamed Mahdy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              {/* Badge */}
+              <div style={{
+                position: 'absolute', bottom: 10, right: -24,
+                background: 'var(--bg-card)',
+                borderRadius: 14, padding: '10px 16px',
+                boxShadow: 'var(--card-shadow)',
+                border: '1px solid var(--border)',
+                display: 'flex', alignItems: 'center', gap: 10,
+              }}>
+                <span style={{ fontSize: 20 }}>⚡</span>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>Available for work</div>
+                  <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Cairo · Remote</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -89,4 +106,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero; 
+export default Hero;

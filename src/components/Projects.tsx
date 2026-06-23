@@ -9,169 +9,137 @@ const foodImages = [
 
 const projects = [
   {
-    image: '/projects-images/cime web.png',
-    name: 'Cima Web',
-    subName: 'cime website',
-    desc: 'A modern movie streaming platform with categories, live TV, and user authentication.',
-    live: 'https://cima-website.vercel.app',
+    image: '/projects-images/formcraft.png',
+    name: 'FormCraft v8',
+    subName: 'AI Form Builder',
+    desc: 'AI-powered low-code form builder. Drag-and-drop canvas, conditional logic engine, multi-framework code export (Angular / React / Vue), and Anthropic Claude API integration. Built solo with Angular 17, Signals, RxJS, and Supabase.',
+    live: 'https://formcraft-v8.vercel.app',
+    tag: 'Angular 17 · AI · Supabase',
+  },
+  {
+    image: '/projects-images/taraabot.png',
+    name: 'Taraabot Admin',
+    subName: 'Angular SaaS Dashboard',
+    desc: 'Multi-module Angular 17+ admin platform for AI assistant management, user roles, billing, and real-time status. Production app at Boyot serving 2,000+ users.',
+    live: '#',
+    tag: 'Angular 17 · RxJS · Angular Material',
+  },
+  {
+    image: '/projects-images/boyot-pay.png',
+    name: 'Boyot Pay Dashboard',
+    subName: 'Fintech Dashboard',
+    desc: 'Financial transaction dashboard with date-range filtering, CSV export, and revenue charts. Production app at Boyot.',
+    live: '#',
+    tag: 'Angular 17 · TypeScript · REST API',
   },
   {
     images: foodImages,
-    name: 'Food Restaurant React',
-    subName: 'Food restaurant',
-    desc: 'A responsive restaurant website built with React and Bootstrap 5.',
+    name: 'Food Restaurant',
+    subName: 'React + TypeScript',
+    desc: 'Responsive restaurant website built with React 18, TypeScript, and Bootstrap 5.',
     live: 'https://food-resta-react-js-bootstrap-5.vercel.app/#',
-  },
-  {
-    image: '/projects-images/Full responsive restaurant.png',
-    name: 'Full Responsive Restaurant',
-    subName: 'Food restaurant',
-    desc: 'A fully responsive restaurant site with menu, team, and reservation features.',
-    live: 'https://project-full-responsive-restaurant.vercel.app/',
+    tag: 'React · TypeScript · Bootstrap 5',
   },
   {
     image: '/projects-images/weather%20web.png',
     name: 'Weather App',
-    subName: 'weather',
-    desc: 'A weather dashboard app showing real-time weather data for any city.',
+    subName: 'API Integration',
+    desc: 'Real-time weather dashboard fetching live data for any city via OpenWeatherMap API.',
     live: 'https://weather-alpha-gilt.vercel.app/',
-  },
-  {
-    image: '/projects-images/pray time.png',
-    name: 'Pray Time',
-    subName: 'Pray Time',
-    desc: 'A prayer time app for Muslims, showing daily prayer times for any location.',
-    live: 'https://pray-time-raect-js.vercel.app/',
-  },
-  {
-    image: '/projects-images/To-Do list.png',
-    name: 'To-Do List',
-    subName: 'To-Do list',
-    desc: 'A simple and elegant to-do list app built with React.js.',
-    live: 'https://to-do-list-react-js-mauve.vercel.app/',
+    tag: 'React · REST API',
   },
 ];
 
+const sectionTitle = {
+  fontSize: 48, letterSpacing: '0.03em',
+  background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)',
+  WebkitBackgroundClip: 'text' as const, WebkitTextFillColor: 'transparent' as const, backgroundClip: 'text' as const,
+};
+
 const Projects: React.FC = () => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [foodIdx, setFoodIdx] = useState(0);
+  const [foodIdx] = useState(0);
+
   return (
-    <section id="portfolio" className="py-5 bg-transparent">
+    <section id="portfolio" className="py-5" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <div className="row justify-content-center mb-4">
           <div className="col-12 text-center">
-            <h2
-              className="fw-black mb-2"
-              style={{
-                fontSize: 48,
-                color: '#FD6F00',
-                letterSpacing: '0.03em',
-                background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Projects
-            </h2>
-            <div className="fw-medium mx-auto" style={{ color: '#959595', fontSize: 22, maxWidth: 700, lineHeight: 1.5 }}>
-              A selection of my best work, showcasing modern web apps, responsive design, and real-world solutions.
+            <h2 className="fw-black mb-2" style={sectionTitle}>Projects</h2>
+            <div style={{ color: 'var(--text-muted)', fontSize: 18, maxWidth: 600, margin: '0 auto', lineHeight: 1.6 }}>
+              A selection of my best work — production SaaS platforms, AI-integrated tools, and frontend apps.
             </div>
           </div>
         </div>
+
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
           {projects.map((project, idx) => (
             <div className="col d-flex" key={idx}>
               <div
-                className="card flex-fill h-100 shadow-sm border-0 rounded-4 overflow-hidden position-relative"
+                className="portfolio-card flex-fill h-100 rounded-4 overflow-hidden position-relative"
                 style={{
-                  background: '#fff',
-                  borderRadius: 24,
-                  minHeight: 420,
-                  minWidth: 0,
+                  borderRadius: 20,
+                  minHeight: 400,
                   transition: 'transform 0.2s, box-shadow 0.2s',
-                  transform: hovered === idx ? 'translateY(-8px) scale(1.025)' : 'none',
-                  boxShadow: hovered === idx ? '0 12px 36px rgba(253,111,0,0.13)' : '0 4px 16px rgba(0,0,0,0.08)',
-                  border: '1.5px solid #ececec',
+                  transform: hovered === idx ? 'translateY(-6px) scale(1.02)' : 'none',
                   cursor: 'pointer',
+                  border: '1.5px solid var(--border)',
                 }}
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {project.images ? (
-                  <div className="position-relative w-100" style={{ height: 220 }}>
-                    <img
-                      src={project.images[foodIdx]}
-                      alt={project.name}
-                      className="card-img-top"
-                      style={{ height: 220, objectFit: 'cover', borderRadius: '24px 24px 0 0' }}
-                    />
-                    <div style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: 4, background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)' }} />
+                {/* Image */}
+                <div className="position-relative w-100" style={{ height: 200, overflow: 'hidden' }}>
+                  <img
+                    src={(project as any).images ? (project as any).images[foodIdx] : (project as any).image}
+                    alt={project.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s', transform: hovered === idx ? 'scale(1.05)' : 'scale(1)' }}
+                  />
+                  <div style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: 4, background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)' }} />
+                </div>
+
+                {/* Body */}
+                <div className="d-flex flex-column p-4 gap-2" style={{ flex: 1 }}>
+                  <div style={{ fontSize: 13, color: '#FD6F00', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                    {project.subName}
                   </div>
-                ) : (
-                  <div className="position-relative w-100" style={{ height: 220 }}>
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="card-img-top"
-                      style={{ height: 220, objectFit: 'cover', borderRadius: '24px 24px 0 0' }}
-                    />
-                    <div style={{ position: 'absolute', left: 0, bottom: 0, width: '100%', height: 4, background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)' }} />
+                  <div className="fw-black" style={{ fontSize: 20, color: 'var(--text-primary)' }}>{project.name}</div>
+                  <div style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.65, flexGrow: 1 }}>{project.desc}</div>
+                  <div style={{ fontSize: 12, color: '#FD6F00', fontWeight: 600, letterSpacing: '0.04em', marginTop: 4 }}>
+                    {(project as any).tag}
                   </div>
-                )}
-                <div className="card-body d-flex flex-column align-items-center justify-content-between p-4 gap-2">
-                  {project.subName && (
-                    <div className="fw-bold text-dark text-center mt-2" style={{ fontSize: 18, letterSpacing: '0.01em' }}>
-                      {project.subName}
-                    </div>
+                  {project.live !== '#' && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn fw-bold px-4 py-2 rounded-3 mt-2 d-flex align-items-center gap-2"
+                      style={{
+                        background: hovered === idx ? 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)' : 'transparent',
+                        color: hovered === idx ? '#fff' : '#FD6F00',
+                        fontSize: 15,
+                        border: '2px solid #FD6F00',
+                        transition: 'all 0.2s',
+                        width: 'fit-content',
+                      }}
+                    >
+                      <i className="fas fa-external-link-alt"></i>
+                      Live Demo
+                    </a>
                   )}
-                  <div style={{ width: 40, height: 3, background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)', borderRadius: 2, margin: '16px auto 0 auto' }} />
-                  <div className="fw-bold text-dark text-center" style={{ fontSize: 22, letterSpacing: '0.03em' }}>{project.name}</div>
-                  <div className="fw-medium text-secondary text-center mb-2" style={{ fontSize: 16, minHeight: 48 }}>{project.desc}</div>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn fw-bold px-4 py-2 rounded-3 mt-2 d-flex align-items-center gap-2"
-                    style={{
-                      background: hovered === idx ? 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)' : '#fff',
-                      color: hovered === idx ? '#fff' : '#FD6F00',
-                      fontSize: 18,
-                      fontFamily: 'Lato, sans-serif',
-                      border: hovered === idx ? 'none' : '2px solid #FD6F00',
-                      outline: hovered === idx ? '2px solid #FD6F00' : 'none',
-                      transition: 'background 0.2s, color 0.2s, outline 0.2s, border 0.2s',
-                      boxShadow: hovered === idx ? '0 2px 12px rgba(253,111,0,0.10)' : 'none',
-                    }}
-                  >
-                    <i className="fas fa-external-link-alt" style={{ fontSize: 18 }}></i>
-                    Live Demo
-                  </a>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
         <div className="row mt-5">
           <div className="col-12 d-flex justify-content-center">
-            <a
-              href="https://github.com/MohamedMahdy123"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn fw-bold px-4 py-3 rounded-3 d-inline-flex align-items-center gap-2"
-              style={{
-                background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)',
-                color: '#fff',
-                fontSize: 20,
-                fontFamily: 'Lato, sans-serif',
-                border: 'none',
-                boxShadow: '0 2px 12px rgba(253,111,0,0.10)',
-                transition: 'background 0.2s, color 0.2s',
-                marginTop: 10,
-              }}
-            >
-              <i className="fab fa-github" style={{ fontSize: 24 }}></i>
-              Show more in GitHub
+            <a href="https://github.com/MohamedMahdy123" target="_blank" rel="noopener noreferrer"
+              className="btn fw-bold px-5 py-3 rounded-3 d-inline-flex align-items-center gap-2"
+              style={{ background: 'linear-gradient(94.36deg, #FD6F00 3.1%, #E46400 94.54%)', color: '#fff', fontSize: 18, border: 'none' }}>
+              <i className="fab fa-github" style={{ fontSize: 22 }}></i>
+              View GitHub
             </a>
           </div>
         </div>
@@ -180,4 +148,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects; 
+export default Projects;

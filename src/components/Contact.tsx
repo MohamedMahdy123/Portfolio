@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-5 bg-transparent">
+    <section id="contact" className="py-5" style={{ background: 'var(--bg)' }}>
       <div className="container">
         <div className="row justify-content-center mb-4">
           <div className="col-12 text-center">
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   disabled={status === 'sending'}
-                  style={{ color: '#959595', fontWeight: 500, background: '#fff', border: '2px solid #FD6F00', fontSize: 20 }}
+                  style={{ color: 'var(--input-text)', fontWeight: 500, background: 'var(--input-bg)', border: '2px solid #FD6F00', fontSize: 20 }}
                 />
               </div>
               <div className="col-md-6">
@@ -109,7 +109,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   disabled={status === 'sending'}
-                  style={{ color: '#959595', fontWeight: 500, background: '#fff', border: '2px solid #FD6F00', fontSize: 20 }}
+                  style={{ color: 'var(--input-text)', fontWeight: 500, background: 'var(--input-bg)', border: '2px solid #FD6F00', fontSize: 20 }}
                 />
               </div>
               <div className="col-md-6">
@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
                   value={form.phone}
                   onChange={handleChange}
                   disabled={status === 'sending'}
-                  style={{ color: '#959595', fontWeight: 500, background: '#fff', border: '2px solid #FD6F00', fontSize: 20 }}
+                  style={{ color: 'var(--input-text)', fontWeight: 500, background: 'var(--input-bg)', border: '2px solid #FD6F00', fontSize: 20 }}
                 />
               </div>
               <div className="col-md-6">
@@ -132,12 +132,12 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   aria-label="Service Of Interest"
                   disabled={status === 'sending'}
-                  style={{ color: '#959595', fontWeight: 500, background: '#fff', border: '2px solid #FD6F00', fontSize: 20 }}
+                  style={{ color: 'var(--input-text)', fontWeight: 500, background: 'var(--input-bg)', border: '2px solid #FD6F00', fontSize: 20 }}
                 >
                   <option value="">Service Of Interest</option>
-                  <option value="web">Web Development</option>
-                  <option value="uiux">UI/UX Design</option>
-                  <option value="mobile">Mobile App</option>
+                  <option value="angular">Angular Development</option>
+                  <option value="react">React Development</option>
+                  <option value="web">Web Application</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
                   value={form.timeline}
                   onChange={handleChange}
                   disabled={status === 'sending'}
-                  style={{ color: '#959595', fontWeight: 500, background: '#fff', border: '2px solid #FD6F00', fontSize: 20 }}
+                  style={{ color: 'var(--input-text)', fontWeight: 500, background: 'var(--input-bg)', border: '2px solid #FD6F00', fontSize: 20 }}
                 />
               </div>
               <div className="col-md-6">
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                   placeholder="Project Details..."
                   value={form.details}
                   onChange={handleChange}
-                  style={{ color: '#959595', fontWeight: 500, background: '#fff', border: '2px solid #FD6F00', fontSize: 20, minHeight: 120 }}
+                  style={{ color: 'var(--input-text)', fontWeight: 500, background: 'var(--input-bg)', border: '2px solid #FD6F00', fontSize: 20, minHeight: 120 }}
                   disabled={status === 'sending'}
                 />
               </div>

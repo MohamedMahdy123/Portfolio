@@ -8,6 +8,153 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ── THEME VARIABLES ─────────────────────────────────────────── */
+:root {
+  --bg:              #ffffff;
+  --bg-secondary:    #f8f9fa;
+  --bg-card:         #ffffff;
+  --text-primary:    #111111;
+  --text-secondary:  #555555;
+  --text-muted:      #888888;
+  --text-light:      #959595;
+  --border:          #ececec;
+  --border-input:    #e0e0e0;
+  --nav-bg:          #ffffff;
+  --nav-shadow:      0 2px 8px rgba(0,0,0,0.06);
+  --footer-bg:       #111111;
+  --input-bg:        #ffffff;
+  --input-text:      #333333;
+  --card-shadow:     0 4px 16px rgba(0,0,0,0.08);
+  --card-shadow-hover: 0 12px 36px rgba(253,111,0,0.13);
+  --skill-bg:        rgba(0,0,0,0.04);
+  --badge-bg:        #f0f0f0;
+  --experience-card: #ffffff;
+  --toggle-bg:       #e8e8e8;
+}
+
+[data-theme="dark"] {
+  --bg:              #0f1117;
+  --bg-secondary:    #161b27;
+  --bg-card:         #1a2035;
+  --text-primary:    #f0f0f0;
+  --text-secondary:  #b0b8cc;
+  --text-muted:      #777c8a;
+  --text-light:      #888ea8;
+  --border:          #252d42;
+  --border-input:    #2a3450;
+  --nav-bg:          #0f1117;
+  --nav-shadow:      0 2px 12px rgba(0,0,0,0.4);
+  --footer-bg:       #080c12;
+  --input-bg:        #1a2035;
+  --input-text:      #e0e0e0;
+  --card-shadow:     0 4px 20px rgba(0,0,0,0.4);
+  --card-shadow-hover: 0 12px 36px rgba(253,111,0,0.22);
+  --skill-bg:        rgba(255,255,255,0.06);
+  --badge-bg:        #1f2840;
+  --experience-card: #1a2035;
+  --toggle-bg:       #252d42;
+}
+
+/* ── TRANSITIONS ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ── GLOBAL BG ───────────────────────────────────────────────── */
+#root {
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ── NAVBAR ──────────────────────────────────────────────────── */
+.portfolio-navbar {
+  background: var(--nav-bg) !important;
+  box-shadow: var(--nav-shadow) !important;
+}
+
+.portfolio-navbar .nav-link {
+  color: var(--text-light) !important;
+}
+
+.portfolio-navbar .nav-link.active,
+.portfolio-navbar .nav-link:hover {
+  color: #FD6F00 !important;
+}
+
+.navbar-toggler {
+  border-color: var(--border) !important;
+}
+
+/* ── CARDS ───────────────────────────────────────────────────── */
+.portfolio-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+.portfolio-card:hover {
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+/* ── FORM INPUTS ─────────────────────────────────────────────── */
+.portfolio-input {
+  background: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--border-input) !important;
+}
+
+.portfolio-input:focus {
+  border-color: #FD6F00 !important;
+  box-shadow: 0 0 0 3px rgba(253,111,0,0.15) !important;
+  outline: none;
+}
+
+.portfolio-input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ── TOGGLE BUTTON ───────────────────────────────────────────── */
+.theme-toggle {
+  background: var(--toggle-bg);
+  border: none;
+  border-radius: 50px;
+  width: 52px;
+  height: 28px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.theme-toggle::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FD6F00;
+  position: absolute;
+  left: 4px;
+  transition: transform 0.25s ease;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  transform: translateX(24px);
+}
+
+.theme-toggle-icon {
+  font-size: 13px;
+  position: absolute;
+  right: 6px;
+  color: #888;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .theme-toggle-icon {
+  right: auto;
+  left: 6px;
 }
